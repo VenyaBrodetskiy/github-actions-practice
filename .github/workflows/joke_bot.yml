@@ -7,6 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
 #   schedule:
     # - cron: '5 * * * *'
+  issues:
+    types: [ opened ]
 
   issue_comment:
     types: [ created ] 
@@ -24,6 +26,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world! | lolcat
+      - name: Generate a joke
+        run: curl https://v2.jokeapi.dev/joke/Any?format=txt
 
